@@ -1,13 +1,13 @@
-let Post = require('./../Models/Post');
+let Post = require('./../Models/User');
 const commonJs = require('../../utils/utils');
 const response = require('../../utils/reponse');
 const PostController = {
 
     async index (ctx) {
-        // ctx.body = '<h2>/admin!</h2>';
-        await ctx.render('index',{
-            title: 'Hello Koa2 !'
-        });
+        ctx.body = '<h2>api!</h2>';
+        // await ctx.render('index',{
+        //     title: 'Hello Koa2 !'
+        // });
     },
 
     async getList (ctx) {
@@ -25,7 +25,7 @@ const PostController = {
 
         // 保存
 
-        const post = new Post({
+       /* const post = new Post({
             "title": "标题",
             "content": "内容详情",
             "desc": "描述",
@@ -43,7 +43,7 @@ const PostController = {
             ctx.body =  res;
         } else {
             ctx.body =  "xxx";
-        }
+        }*/
 
 
 

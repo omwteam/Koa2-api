@@ -11,6 +11,10 @@ const PostController = require('./../app/Controller/PostController');
  *  posts表相关操作路由
  * ======================
  */
+
+
+// 获取列表
+router.get('/', PostController.index);
 // 获取列表
 router.get('/post/getList', PostController.getList);
 // 增加

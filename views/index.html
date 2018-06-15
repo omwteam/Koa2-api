@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/resource/bootstrap4/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Koa2</title>
+</head>
+<body>
+
+<div class="container" style="border: 1px solid;padding: 20px;min-height: 600px;">
+    <h1>测试信息!</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-block btn-primary" id="commit">提交</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>返回数据：</h3>
+            <textarea rows="10"  class="form-control" id="show"></textarea>
+
+
+        </div>
+    </div>
+    <!-- Content here -->
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"  crossorigin="anonymous"></script>
+<script src="/resource/bootstrap4/js/bootstrap.min.js" ></script>
+
+<script>
+    let params = {
+        title: "test",
+        content: "test",
+        html_content: "<p>test</p>",
+        desc: "sss",
+        u_id: 1,
+        category_id: 1,
+        type: 0,
+    };
+
+    $('#commit').on('click',function () {
+        $.ajax({
+            url: "/admin/post/create",
+            method: "post",
+            data: params,
+            dataType: "json",
+            success: function (res) {
+                // console.log('success=' + res);
+                let resStr = JSON.stringify(res);
+                $('#show').html(resStr);
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        })
+    })
+</script>
+</body>
+</html>
